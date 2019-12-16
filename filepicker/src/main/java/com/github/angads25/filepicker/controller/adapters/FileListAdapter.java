@@ -28,13 +28,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.github.angads25.filepicker.R;
 import com.github.angads25.filepicker.controller.NotifyItemChecked;
 import com.github.angads25.filepicker.model.DialogConfigs;
 import com.github.angads25.filepicker.model.DialogProperties;
 import com.github.angads25.filepicker.model.FileListItem;
 import com.github.angads25.filepicker.model.MarkedItemList;
-import com.github.angads25.filepicker.utils.GlideApp;
 import com.github.angads25.filepicker.utils.MediaFile;
 import com.github.angads25.filepicker.widget.MaterialCheckbox;
 import com.github.angads25.filepicker.widget.OnCheckedChangeListener;
@@ -117,7 +117,7 @@ public class FileListAdapter extends BaseAdapter {
             if (MediaFile.isImageFileType(item.getLocation()) && properties.imagePreview) {
                 holder.image.setVisibility(View.VISIBLE);
                 holder.type_icon.setVisibility(View.GONE);
-                GlideApp.with(context).load("file://" + item.getLocation()).into(holder.image);
+                Glide.with(context).load("file://" + item.getLocation()).into(holder.image);
             } else {
                 holder.image.setVisibility(View.GONE);
                 holder.type_icon.setVisibility(View.VISIBLE);
